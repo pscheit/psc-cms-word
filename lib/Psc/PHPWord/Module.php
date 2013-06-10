@@ -41,4 +41,3 @@ class Module extends \Psc\CMS\Module {
     return array();
   }
 }
-?>

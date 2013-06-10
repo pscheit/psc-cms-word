@@ -100,8 +100,8 @@ class Invoice extends MainTemplate {
     
     $r = $this->recipient;
     $this->addText($r->get('company.title'), 'recipient.highlight', 'standard');
-    $this->addMarkupText(sprintf("%s\n%s%s\n%s-%d %s",
-                                 $r->get('company.department'),
+    $this->addMarkupText(sprintf("%s%s%s\n%s-%d %s",
+                                 ($r->get('company.department') !== NULL ? $r->get('company.department')."\n" : NULL),
                                  ($r->get('company.co') !== NULL ? $r->get('company.co')."\n" : NULL),
                                  $r->get('address.street'),
                                  $r->get('address.countryCode'), $r->get('address.zip'), $r->get('address.city')
@@ -158,33 +158,45 @@ class Invoice extends MainTemplate {
       $table->addCell(h::pt2twip($w3), $cStyle)->addText($item->getPrice()->getFormat(Price::NETTO), 'item', 'standard.right');
       $sum += $item->getPrice()->getNet();
     }
-    $t = 0.19;
-    $sum = new Price($sum, Price::NET, $t);
+
+    $sum = new Price($sum, Price::NET, $item->getPrice()->getTax());
+
+    $taxes = $sum->getTax() !== -1;
 
     $c1Style = h::setAllBorders(array(), h::pt2twip($borderWidth), NULL, array(h::BORDER_LEFT, h::BORDER_BOTTOM));
     $c2Style = h::setAllBorders(array(), h::pt2twip($borderWidth), NULL, array(h::BORDER_RIGHT, h::BORDER_BOTTOM));
     $c3Style = h::setAllBorders(array(), h::pt2twip($borderWidth), NULL, array(h::BORDER_RIGHT, h::BORDER_LEFT, h::BORDER_BOTTOM));
     
+    // blank
     $table->addRow();
     $table->addCell(h::pt2twip($w1), $c1Style)->addText('','sum','standard');
     $table->addCell(h::pt2twip($w2), h::setAllBorders(array(), h::pt2twip($borderWidth), NULL, array(h::BORDER_BOTTOM)))->addText('','sum','standard');
     $table->addCell(h::pt2twip($w3), $c2Style)->addText('','sum','standard');
     
     $cStyle = array();
-    $table->addRow();
-    $table->addCell(h::pt2twip($w1), $c1Style)->addText('','sum','standard');
-    $table->addCell(h::pt2twip($w2), $c2Style)->addText('Nettobetrag', 'sum', 'standard.right');
-    $table->addCell(h::pt2twip($w3), $c3Style)->addText($sum->getFormat(Price::NETTO), 'sum', 'standard.right');
 
-    $table->addRow();
-    $table->addCell(h::pt2twip($w1), $c1Style)->addText('','item','standard');
-    $table->addCell(h::pt2twip($w2), $c2Style)->addText(sprintf('%d%% MwSt.', $t*100), 'sum', 'standard.right');
-    $table->addCell(h::pt2twip($w3), $c3Style)->addText($sum->getFormat(Price::TAX), 'sum', 'standard.right');
+    if (!$taxes) {
+      $table->addRow();
+      $table->addCell(h::pt2twip($w1), $c1Style)->addText('','sum','standard');
+      $table->addCell(h::pt2twip($w2), $c2Style)->addText('Gesamtbetrag', 'sum.highlight', 'standard.right');
+      $table->addCell(h::pt2twip($w3), $c3Style)->addText($sum->getFormat(Price::BRUTTO), 'sum.highlight', 'standard.right');
 
-    $table->addRow();
-    $table->addCell(h::pt2twip($w1), $c1Style)->addText('','sum','standard');
-    $table->addCell(h::pt2twip($w2), $c2Style)->addText('Gesamtbetrag', 'sum.highlight', 'standard.right');
-    $table->addCell(h::pt2twip($w3), $c3Style)->addText($sum->getFormat(Price::BRUTTO), 'sum.highlight', 'standard.right');
+    } else {
+      $table->addRow();
+      $table->addCell(h::pt2twip($w1), $c1Style)->addText('','sum','standard');
+      $table->addCell(h::pt2twip($w2), $c2Style)->addText('Nettobetrag', 'sum', 'standard.right');
+      $table->addCell(h::pt2twip($w3), $c3Style)->addText($sum->getFormat(Price::NETTO), 'sum', 'standard.right');
+
+      $table->addRow();
+      $table->addCell(h::pt2twip($w1), $c1Style)->addText('','item','standard');
+      $table->addCell(h::pt2twip($w2), $c2Style)->addText(sprintf('%d%% MwSt.', $t*100), 'sum', 'standard.right');
+      $table->addCell(h::pt2twip($w3), $c3Style)->addText($sum->getFormat(Price::TAX), 'sum', 'standard.right');
+
+      $table->addRow();
+      $table->addCell(h::pt2twip($w1), $c1Style)->addText('','sum','standard');
+      $table->addCell(h::pt2twip($w2), $c2Style)->addText('Gesamtbetrag', 'sum.highlight', 'standard.right');
+      $table->addCell(h::pt2twip($w3), $c3Style)->addText($sum->getFormat(Price::BRUTTO), 'sum.highlight', 'standard.right');
+    }
   }
   
   protected function createText() {
