@@ -8,11 +8,12 @@
     ],
     "autoload": {
         "psr-0": { 
-            "Psc\\PHPWord": ["lib/"]
+            "Psc\\PHPWord": ["lib/"],
+            "PHPWord": ["lib/PHPWord/"]
         }
     },
     "minimum-stability": "dev",
     "require": {
-
+        "webforge/accounting": "1.0.*@dev"
     }
 }
