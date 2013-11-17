@@ -6,16 +6,7 @@ use PHPWord;
 use PHPWord_IOFactory;
 use Webforge\Common\System\File;
 
-/**
- * @group class:Psc\PHPWord\MainTemplate
- */
-class MainTemplateTest extends \Psc\Code\Test\Base {
-  
-  public static function setUpBeforeClass() {
-    \Psc\PSC::getProject()->getModule('PHPWord')->bootstrap();
-    
-    
-  }
+class MainTemplateTest extends \Webforge\Code\Test\Base {
   
   public function setUp() {
     $this->chainClass = 'Psc\PHPWord\MainTemplate';
@@ -23,10 +14,10 @@ class MainTemplateTest extends \Psc\Code\Test\Base {
   }
   
   public function testNative() {
+    $PHPWord = new PHPWord();
+
     $path = PHPWORD_BASE_PATH . 'PHPWord/_staticDocParts/numbering.xml';
     $this->assertFileExists($path, 'Path: '.$path.' muss zugänglich sein');
-    
-    $PHPWord = new PHPWord();
 
     // Every element you want to append to the word document is placed in a section. So you need a section:
     $section = $PHPWord->createSection();
@@ -42,9 +33,10 @@ class MainTemplateTest extends \Psc\Code\Test\Base {
     $tpl = new MainTemplate();
     $tpl->addMarkupText('Dies ist ein kleiner aber schöner Test');
     
-    $tpl->write($out = $this->newFile('out.docx'));
+    $file = File::createTemporary();
+    $tpl->write($file);
     
-    $this->assertFileExists((string) $out);
+    $this->assertFileExists((string) $file);
+    $file->delete();
   }
 }
-?>

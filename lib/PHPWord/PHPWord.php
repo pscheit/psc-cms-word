@@ -24,6 +24,9 @@
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt    LGPL
  * @version    Beta 0.6.3, 08.07.2011
  */
+if (!defined('PHPWORD_BASE_PATH')) {
+	define('PHPWORD_BASE_PATH', realpath(__DIR__).DIRECTORY_SEPARATOR);
+}
 
 /**
  * PHPWord
@@ -219,4 +222,3 @@ class PHPWord {
         }
     }
 }
-?>
