@@ -92,4 +92,3 @@ class MainTemplate extends BaseTemplate {
     return TRUE;
   }
 }
-?>

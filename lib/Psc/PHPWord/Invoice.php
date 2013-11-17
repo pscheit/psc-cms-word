@@ -189,7 +189,7 @@ class Invoice extends MainTemplate {
 
       $table->addRow();
       $table->addCell(h::pt2twip($w1), $c1Style)->addText('','item','standard');
-      $table->addCell(h::pt2twip($w2), $c2Style)->addText(sprintf('%d%% MwSt.', $t*100), 'sum', 'standard.right');
+      $table->addCell(h::pt2twip($w2), $c2Style)->addText(sprintf('%d%% MwSt.', $sum->getTax()*100), 'sum', 'standard.right');
       $table->addCell(h::pt2twip($w3), $c3Style)->addText($sum->getFormat(Price::TAX), 'sum', 'standard.right');
 
       $table->addRow();
@@ -224,4 +224,3 @@ class Invoice extends MainTemplate {
     return $this->invoice->getItems();
   }
 }
-?>
