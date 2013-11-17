@@ -17,5 +17,10 @@
     },
     "require-dev": {
         "webforge/testplate": "1.*"
+    },
+    "extra":{
+        "branch-alias":{
+            "dev-master":"1.0.x-dev"
+        }
     }
 }
