@@ -25,6 +25,3 @@ class Helper {
     return (int) round($pt * 20,1);
   }
 }
-
-
-?>

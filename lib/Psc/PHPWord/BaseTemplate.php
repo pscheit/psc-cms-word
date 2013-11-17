@@ -13,7 +13,7 @@ use Psc\TPL\TPL;
 /**
  * Base Class für alle WordTemplates
  */
-class BaseTemplate extends \Psc\System\LoggerObject {
+class BaseTemplate {
   
   /**
    * @var PHPWord
@@ -195,4 +195,3 @@ class BaseTemplate extends \Psc\System\LoggerObject {
     return FALSE;
   }
 }
-?>
