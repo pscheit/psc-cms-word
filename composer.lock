@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "65ac118737f6c3f845ccb2569ae305c2",
+    "hash": "a11fd8ccdef1c42dab341e4da6f23c53",
     "packages": [
 
     ],
@@ -77,6 +77,58 @@
             "time": "2013-08-29 16:56:45"
         },
         {
+            "name": "liip/rmt",
+            "version": "0.9.15",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/liip/RMT.git",
+                "reference": "3b17c3b5a66146ee0f30965d60009e1b531db4ec"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/liip/RMT/zipball/3b17c3b5a66146ee0f30965d60009e1b531db4ec",
+                "reference": "3b17c3b5a66146ee0f30965d60009e1b531db4ec",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "symfony/console": "~2.0",
+                "symfony/process": "~2.0",
+                "symfony/yaml": "~2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Liip": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Laurent Prodon",
+                    "email": "laurent.prodon@liip.ch",
+                    "role": "Developer"
+                },
+                {
+                    "name": "David Jeanmonod",
+                    "email": "david.jeanmonod@liip.ch",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Release Managment Tool",
+            "homepage": "http://github.com/liip/RMT",
+            "keywords": [
+                "release",
+                "semantic versioning",
+                "vcs tag",
+                "version"
+            ],
+            "time": "2013-11-19 15:05:48"
+        },
+        {
             "name": "seld/jsonlint",
             "version": "1.1.2",
             "source": {
@@ -124,18 +176,71 @@
             "time": "2013-11-04 15:41:11"
         },
         {
+            "name": "symfony/console",
+            "version": "dev-master",
+            "target-dir": "Symfony/Component/Console",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/Console.git",
+                "reference": "ff8d5444c1b4dc7675aaeecd35f7ed1f0872c242"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/Console/zipball/ff8d5444c1b4dc7675aaeecd35f7ed1f0872c242",
+                "reference": "ff8d5444c1b4dc7675aaeecd35f7ed1f0872c242",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "symfony/event-dispatcher": "~2.1"
+            },
+            "suggest": {
+                "symfony/event-dispatcher": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\Console\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Console Component",
+            "homepage": "http://symfony.com",
+            "time": "2013-11-28 10:27:35"
+        },
+        {
             "name": "symfony/process",
             "version": "2.3.x-dev",
             "target-dir": "Symfony/Component/Process",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Process.git",
-                "reference": "82898108f79040314a7b3ba430a72c32c7f61d14"
+                "reference": "b09d36ac19d221e2e457a1457e6eef9c215845a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Process/zipball/82898108f79040314a7b3ba430a72c32c7f61d14",
-                "reference": "82898108f79040314a7b3ba430a72c32c7f61d14",
+                "url": "https://api.github.com/repos/symfony/Process/zipball/b09d36ac19d221e2e457a1457e6eef9c215845a7",
+                "reference": "b09d36ac19d221e2e457a1457e6eef9c215845a7",
                 "shasum": ""
             },
             "require": {
@@ -168,7 +273,54 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "http://symfony.com",
-            "time": "2013-10-30 08:30:20"
+            "time": "2013-11-25 14:52:16"
+        },
+        {
+            "name": "symfony/yaml",
+            "version": "dev-master",
+            "target-dir": "Symfony/Component/Yaml",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/Yaml.git",
+                "reference": "1481f096caead542c2dfadd67d9fd6124d97e273"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/Yaml/zipball/1481f096caead542c2dfadd67d9fd6124d97e273",
+                "reference": "1481f096caead542c2dfadd67d9fd6124d97e273",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\Yaml\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Yaml Component",
+            "homepage": "http://symfony.com",
+            "time": "2013-11-26 16:42:52"
         },
         {
             "name": "webforge/collections",
@@ -176,18 +328,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/webforge-labs/webforge-collections.git",
-                "reference": "ffa069d7117fbd1706900ae17682d99fd62c2dc9"
+                "reference": "8553a1973a9dec2525cb12add33ab7a0558d02eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webforge-labs/webforge-collections/zipball/ffa069d7117fbd1706900ae17682d99fd62c2dc9",
-                "reference": "ffa069d7117fbd1706900ae17682d99fd62c2dc9",
+                "url": "https://api.github.com/repos/webforge-labs/webforge-collections/zipball/8553a1973a9dec2525cb12add33ab7a0558d02eb",
+                "reference": "8553a1973a9dec2525cb12add33ab7a0558d02eb",
                 "shasum": ""
             },
             "require": {
                 "doctrine/collections": "1.2.*"
             },
             "require-dev": {
+                "liip/rmt": "0.9.*",
                 "satooshi/php-coveralls": "dev-master",
                 "webforge/testplate": ">=1.2"
             },
@@ -216,7 +369,7 @@
                 }
             ],
             "description": "Collection extensions based on Doctrine\\Common\\Collections",
-            "time": "2013-10-29 14:00:10"
+            "time": "2013-11-29 12:05:00"
         },
         {
             "name": "webforge/common",
@@ -224,12 +377,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/webforge-labs/webforge-common.git",
-                "reference": "623569d7b2d59cc5594d707838d963e84cfe6b9c"
+                "reference": "5899ca3d256394fa855b6c64a84852a3821d8eaf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webforge-labs/webforge-common/zipball/623569d7b2d59cc5594d707838d963e84cfe6b9c",
-                "reference": "623569d7b2d59cc5594d707838d963e84cfe6b9c",
+                "url": "https://api.github.com/repos/webforge-labs/webforge-common/zipball/5899ca3d256394fa855b6c64a84852a3821d8eaf",
+                "reference": "5899ca3d256394fa855b6c64a84852a3821d8eaf",
                 "shasum": ""
             },
             "require": {
@@ -240,12 +393,11 @@
                 "webforge/process": "1.1.*@dev"
             },
             "require-dev": {
-                "apigen/apigen": "dev-master",
                 "liip/rmt": "0.9.*",
                 "mikey179/vfsstream": "1.2.*@stable",
                 "mockery/mockery": "@stable",
                 "satooshi/php-coveralls": "dev-master",
-                "webforge/testplate": ">=1.3"
+                "webforge/testplate": ">=1.5"
             },
             "type": "library",
             "extra": {
@@ -276,7 +428,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2013-11-11 19:56:05"
+            "time": "2013-12-03 12:26:49"
         },
         {
             "name": "webforge/process",
@@ -284,12 +436,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/webforge-labs/webforge-process.git",
-                "reference": "e7c28dafcd2974370bf289cfe756cd9299c55b08"
+                "reference": "e3a787d4c15785f2f225b55b623acc21cfa98842"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webforge-labs/webforge-process/zipball/e7c28dafcd2974370bf289cfe756cd9299c55b08",
-                "reference": "e7c28dafcd2974370bf289cfe756cd9299c55b08",
+                "url": "https://api.github.com/repos/webforge-labs/webforge-process/zipball/e3a787d4c15785f2f225b55b623acc21cfa98842",
+                "reference": "e3a787d4c15785f2f225b55b623acc21cfa98842",
                 "shasum": ""
             },
             "require": {
@@ -297,6 +449,7 @@
                 "webforge/common": "1.*@dev"
             },
             "require-dev": {
+                "liip/rmt": "0.9.*",
                 "mockery/mockery": "0.8.*@stable",
                 "satooshi/php-coveralls": "dev-master",
                 "symfony/console": "2.3.*@stable",
@@ -327,7 +480,7 @@
                     "email": "p.scheit@ps-webforge.com"
                 }
             ],
-            "time": "2013-11-11 19:47:24"
+            "time": "2013-11-29 12:07:05"
         },
         {
             "name": "webforge/testplate",
@@ -335,12 +488,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/webforge-labs/webforge-testplate.git",
-                "reference": "c1d58c95823500b2b3a7578e0b0d86293a27cf68"
+                "reference": "6968f1ee80c0739c49c5f0c6895fb742c872992a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webforge-labs/webforge-testplate/zipball/c1d58c95823500b2b3a7578e0b0d86293a27cf68",
-                "reference": "c1d58c95823500b2b3a7578e0b0d86293a27cf68",
+                "url": "https://api.github.com/repos/webforge-labs/webforge-testplate/zipball/6968f1ee80c0739c49c5f0c6895fb742c872992a",
+                "reference": "6968f1ee80c0739c49c5f0c6895fb742c872992a",
                 "shasum": ""
             },
             "require": {
@@ -383,7 +536,7 @@
                 }
             ],
             "description": "Testplate for webforge for base testcases",
-            "time": "2013-11-13 11:54:08"
+            "time": "2013-12-03 12:00:28"
         }
     ],
     "aliases": [

@@ -2,9 +2,9 @@
 
 namespace Psc\PHPWord;
 
-use Psc\Data\Accounting\InvoiceItems;
-use Psc\Data\Accounting\Price;
-use Psc\Data\Accounting\Invoice AS InvoiceData;
+use Webforge\Accounting\InvoiceItems;
+use Webforge\Accounting\Price;
+use Webforge\Accounting\Invoice AS InvoiceData;
 use Psc\PHPWord\Helper as h;
 
 class Invoice extends MainTemplate {
