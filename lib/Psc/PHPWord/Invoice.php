@@ -35,6 +35,7 @@ class Invoice extends MainTemplate {
     
     $this->word->addFontStyle('date', array('size'=>9));
     $this->word->addFontStyle('text', array('size'=>11));
+    $this->word->addFontStyle('headline', array('size'=>11.5, 'bold'=>true));
     $this->word->addFontStyle('item', array('size'=>11));
     $this->word->addFontStyle('sum', array('size'=>11.5));
     $this->word->addFontStyle('sum.highlight', array('size'=>12,'bold'=>true));
@@ -123,6 +124,9 @@ class Invoice extends MainTemplate {
                    );
     $this->br();
     
+    // title
+    $this->addText(sprintf('Rechung: %s', $this->data->getTitle()), 'headline', 'standard');
+
     // rechnungsNummer
     $this->addText(sprintf('Rechnungs Nr.: %s', $this->data->getLabelId()), 'text', 'standard');
     
